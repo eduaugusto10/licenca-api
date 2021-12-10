@@ -22,7 +22,7 @@ Route.get("/", () => {
 
 Route.post("/users", "UserController.create");
 Route.get("/users", "UserController.index").middleware('auth')
-Route.get("/users/:id", "UserController.show");
+Route.get("/users/:id?account=:account", "UserController.show");
 Route.put("/users/:id", "UserController.update").middleware('auth')
 Route.delete("/users/:id", "UserController.destroy").middleware('auth')
 Route.post("/sessions", "SessionController.create");

@@ -27,7 +27,10 @@ class UserController {
 
   async show({ params }) {
     const user = await User.findOrFail(params.id);
-    const response = user.license_validate > new Date() ? true : false;
+    const response = false;
+    //user.license_validate > new Date() ? true : false;
+    if (user.account == params.account && user.license_validate > new Date())
+      response = true;
 
     return response;
   }
