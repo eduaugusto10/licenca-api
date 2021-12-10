@@ -34,6 +34,11 @@ class UserController {
 
     return {"status":response};
   }
+  async shows({ params }) {
+    const user = await User.findOrFail(params.id);
+
+    return user;
+  }
 
   async destroy({ params, auth, response }) {
     const user = await User.findOrFail(params.id);
