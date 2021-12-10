@@ -31,8 +31,8 @@ class UserController {
     //user.license_validate > new Date() ? true : false;
     if (user.account == params.account && user.license_validate > new Date())
       response = true;
-    const resp = JSON.parse(JSON.stringify({ response: response }));
-    return resp;
+
+    return [{response:response}];
   }
 
   async destroy({ params, auth, response }) {
