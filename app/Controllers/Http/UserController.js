@@ -27,10 +27,10 @@ class UserController {
 
   async show({ params }) {
     const user = await User.findOrFail(params.id);
-    let response = false;
+    let response = "vencido";
     //user.license_validate > new Date() ? true : false;
     if (user.account == params.account && user.license_validate > new Date())
-      response = true;
+      response = "liberado";
 
     return [{response:response}];
   }
