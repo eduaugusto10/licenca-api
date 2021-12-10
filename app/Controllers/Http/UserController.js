@@ -32,7 +32,7 @@ class UserController {
     if (user.account == params.account && user.license_validate > new Date())
       response = "liberado";
 
-    return [{response:response}];
+    return {"status":response};
   }
 
   async destroy({ params, auth, response }) {
